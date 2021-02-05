@@ -28,5 +28,7 @@ public class TestClase4 {
 		levis.click_on_category();
 		System.out.println("Test completed");
 	}
+	
+	// prueba commit
 
 }
