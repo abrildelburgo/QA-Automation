@@ -1,0 +1,94 @@
+package pruebas;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class compra {
+	private WebDriver driver;
+	
+	@Before
+	public void setup() throws Exception {
+		System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window();
+		driver.get("http://colecciones.uat.glamit.com.ar/lookbook/17.html");
+		
+		/*
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		WebElement searchbox;
+		searchbox = driver.findElement(By.name("username"));
+		searchbox.clear();
+		searchbox.sendKeys("abrildelburgo");
+		searchbox = driver.findElement(By.name("password"));
+		searchbox.clear();
+		searchbox.sendKeys("contraseña");
+		searchbox.submit();		
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String newWindow = "window.open(\"https://www.instagram.com/bonjovi\",'_blank');";  // replace link with your desired link
+		((JavascriptExecutor)driver).executeScript(newWindow);
+		
+		ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+	    driver.switchTo().window(tabs.get(1)); //switches to new tab 
+	    */
+	}
+	
+	@Test
+	public void bonjoviSeguidores () {
+
+		driver.findElements(By.className("checkmark")).get(1).click();
+		driver.findElement(By.id("addAllItemsToCart")).click();
+		
+		WebDriverWait wait= new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\\\"miniCarrito\\\"]/div/a[2]")));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\\\"miniCarrito\\\"]/div/a[2]")));
+		
+		driver.findElement(By.xpath("//*[@id=\"miniCarrito\"]/div/a[2]")).click();
+		//driver.findElements(By.className("minipurch button")).get(0).click();
+		
+		driver.findElement(By.id("aceptar")).click();
+		driver.findElement(By.className("button btn-proceed-checkout btn-checkout")).click();
+		driver.findElement(By.className("button registrarse")).click();
+		
+		WebElement searchbox;
+		searchbox = driver.findElement(By.name("billing[firstname]"));
+		searchbox.clear();
+		searchbox.sendKeys("Abril");
+		
+		searchbox = driver.findElement(By.name("billing[lastname]"));
+		searchbox.clear();
+		searchbox.sendKeys("del Burgo");
+		
+		searchbox = driver.findElement(By.name("billing[email]"));
+		searchbox.clear();
+		searchbox.sendKeys("pruebas12345@gmail.com");
+		
+		
+			
+		
+		/*
+		WebElement searchbox;
+		searchbox = driver.findElements(By.className("g47SY")).get(1);
+		assertEquals("1,4mm", searchbox.getText());
+		*/
+	}
+}

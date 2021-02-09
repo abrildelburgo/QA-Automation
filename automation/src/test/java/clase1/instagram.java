@@ -15,6 +15,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 public class instagram {
 	private WebDriver driver;
+	
 	@Before
 	public void setup() throws Exception {
 		System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
