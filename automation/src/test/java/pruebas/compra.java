@@ -45,11 +45,9 @@ public class compra {
 		driver.findElement(By.id("aceptar")).click();
 		
 		// completar compra 
-		//driver.findElement(By.className("button btn-proceed-checkout btn-checkout")).click(); 
 		driver.findElement(By.cssSelector("#carrito > div.datos-compra > div.totals > ul > li > button")).click();
 
 		// es nuevo cliente, por lo tanto, se registra
-		// driver.findElement(By.className("button registrarse")).click();
 		driver.findElement(By.cssSelector("#checkout-step-login > div > div.col-1 > div > button")).click();
 		
 		WebElement searchbox;
@@ -96,7 +94,6 @@ public class compra {
 		searchbox.clear();
 		searchbox.sendKeys("46712163");
 		
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		searchbox = driver.findElement(By.name("billing[vat_id]"));
 		searchbox.clear();
 		searchbox.sendKeys("41586983");
@@ -105,7 +102,6 @@ public class compra {
 		searchbox.clear();
 		searchbox.sendKeys("09");
 		
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		searchbox = driver.findElement(By.name("billing[month]"));
 		searchbox.clear();
 		searchbox.sendKeys("10");
@@ -118,5 +114,29 @@ public class compra {
 		se3.selectByValue("2");
 		
 		driver.findElement(By.cssSelector("#billing-buttons-container > button")).click();
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		// elijo un metodo de envio
+		driver.findElement(By.id("s_method_LaNacionHop_LaNacionHop")).click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		Select se4 = new Select(driver.findElement(By.cssSelector("#shipping_form_LaNacionHop_LaNacionHop > li > span > select")));
+		se4.selectByValue("317");
+		
+		// continuar al siguiente paso
+		driver.findElement(By.cssSelector("#shipping-method-buttons-container > button")).click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		// elijo metodo de pago
+		driver.findElement(By.xpath("/html/body/main/div/div[1]/ol/li[5]/div[3]/form/fieldset/dl/dl/div/div[1]/dt/input")).click();
+		
+		// continuar al siguiente paso
+		driver.findElement(By.cssSelector("#payment-buttons-container > button")).click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		// finalizo la compra
+		driver.findElement(By.cssSelector("#review-buttons-container > button")).click();
+		
 	}
 }
