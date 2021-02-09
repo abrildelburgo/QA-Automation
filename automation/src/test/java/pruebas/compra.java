@@ -30,7 +30,8 @@ public class compra {
 	
 	@Test
 	public void checkout () {
-
+		
+		// elijo un producto y lo agrego al carrito
 		driver.findElements(By.className("checkmark")).get(1).click();
 		driver.findElement(By.id("addAllItemsToCart")).click();
 		
@@ -39,7 +40,6 @@ public class compra {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/section[2]/div/a[2]")));
 		
 		driver.findElement(By.xpath("/html/body/div[1]/section[2]/div/a[2]")).click();
-		//driver.findElements(By.className("minipurch button")).get(0).click();
 		
 		// acepta un producto agregado
 		driver.findElement(By.id("aceptar")).click();
@@ -50,6 +50,8 @@ public class compra {
 		// es nuevo cliente, por lo tanto, se registra
 		driver.findElement(By.cssSelector("#checkout-step-login > div > div.col-1 > div > button")).click();
 		
+		
+		//INFORMACION FACTURACION
 		WebElement searchbox;
 		searchbox = driver.findElement(By.name("billing[firstname]"));
 		searchbox.clear();
@@ -137,6 +139,5 @@ public class compra {
 		
 		// finalizo la compra
 		driver.findElement(By.cssSelector("#review-buttons-container > button")).click();
-		
 	}
 }
