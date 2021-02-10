@@ -22,11 +22,11 @@ public class Checkout_Cart {
 	 
 	 // Methods
 	 public void agregarArticulo () {
-		 driver.findElement(Boton_AgregarArticulo).click();
+		 Utils.click(Boton_AgregarArticulo, driver);
 	 }
 	 
 	 public void completarCompra () {
-		 driver.findElement(Boton_CompletarCompra).click();
+		 Utils.click(Boton_CompletarCompra, driver);
 	 }
 	 
 }

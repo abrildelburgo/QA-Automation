@@ -28,7 +28,7 @@ public class Lookbook {
 	 }
 	 
 	 public void clickComprar () {
-	 	 driver.findElement(Boton_Comprar).click();
+	 	 Utils.click(Boton_Comprar, driver);
 	 }
 	 
 	 public void clickIrAlCarrito () {
@@ -37,7 +37,7 @@ public class Lookbook {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Boton_IrAlCarrito));
 		wait.until(ExpectedConditions.elementToBeClickable(Boton_IrAlCarrito));
 			
-		driver.findElement(Boton_IrAlCarrito).click();
+		Utils.click(Boton_IrAlCarrito, driver);
 	 }
  
 }

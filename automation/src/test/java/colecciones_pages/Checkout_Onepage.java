@@ -41,7 +41,7 @@ public class Checkout_Onepage {
 	
 	 // Methods
 	 public void registrarCliente () {
-		 driver.findElement(Boton_Registrarse).click();
+		Utils.click(Boton_Registrarse, driver);
 	 }
 	 
 	 public void registrarInformacionFacturacion_DatosPersonales (String nombre, String apellido, String email, String contrasenia, String confirmacionContrasenia) {
@@ -79,7 +79,7 @@ public class Checkout_Onepage {
 			
 				 
 	 public void clickContinuar () {
-		 driver.findElement(Boton_Continuar).click();
+		 Utils.click(Boton_Continuar, driver);
 	 }
 	 
 	 public void elegirMetodoEnvio (MetodoEnvio metodoEnvio, String valueSucursal) {		 
@@ -87,7 +87,7 @@ public class Checkout_Onepage {
 	 }
 	 
 	 public void continuarAConfirmacion () {
-		 driver.findElement(Boton_ContinuarAConfirmacion).click();
+		 Utils.click(Boton_ContinuarAConfirmacion, driver);
 	 }
 	 
 }
