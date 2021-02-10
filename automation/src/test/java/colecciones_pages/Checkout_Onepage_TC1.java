@@ -31,7 +31,7 @@ public class Checkout_Onepage_TC1 {
 		 checkout_cart.completarCompra();
 		 
 		 checkout_onepage.registrarCliente();
-		 checkout_onepage.registrarInformacionFacturacion_DatosPersonales("Abril", "del Burgo", "pruebas123456789@gmail.com", "pruebas123", "pruebas123");
+		 checkout_onepage.registrarInformacionFacturacion_DatosPersonales("Abril", "del Burgo", "pruebas12345678910@gmail.com", "pruebas123", "pruebas123");
 		 checkout_onepage.registrarInformacionFacturacion_Direccion("Cajaravilla", "4115", "534", "3040", "1407");
 		 Genero mujer = new Mujer();
 		 checkout_onepage.registrarInformacionFacturacion_DatosAdicionales("46712163", "41567876", "01", "01", "2000", mujer);
