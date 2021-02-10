@@ -4,8 +4,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import genero.Genero;
+import medio_pago.MedioPago;
+import metodo_envio.MetodoEnvio;
 
 public class Checkout_Onepage {
 

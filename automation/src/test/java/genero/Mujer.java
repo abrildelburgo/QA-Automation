@@ -1,4 +1,4 @@
-package colecciones_pages;
+package genero;
 
 public class Mujer implements Genero {
 

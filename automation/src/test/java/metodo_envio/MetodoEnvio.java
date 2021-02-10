@@ -1,4 +1,4 @@
-package colecciones_pages;
+package metodo_envio;
 
 import org.openqa.selenium.WebDriver;
 

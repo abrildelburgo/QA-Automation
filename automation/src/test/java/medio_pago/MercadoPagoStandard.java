@@ -1,7 +1,9 @@
-package colecciones_pages;
+package medio_pago;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import colecciones_pages.Utils;
 
 public class MercadoPagoStandard implements MedioPago {
 

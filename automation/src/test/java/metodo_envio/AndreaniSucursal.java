@@ -1,8 +1,10 @@
-package colecciones_pages;
+package metodo_envio;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import colecciones_pages.Utils;
 
 public class AndreaniSucursal implements MetodoEnvio {
 	

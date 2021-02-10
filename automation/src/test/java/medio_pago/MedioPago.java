@@ -1,4 +1,4 @@
-package colecciones_pages;
+package medio_pago;
 
 import org.openqa.selenium.WebDriver;
 

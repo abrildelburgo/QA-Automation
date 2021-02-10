@@ -24,7 +24,7 @@ public class Lookbook {
 	 // Methods
 	 public void seleccionarArticulo (int index) {
 		 driver.findElements(Articulo_Seleccionado).get(index).click();
-		 // TO DO: VER TEMA LISTA DE PRODUCTOS
+		 // TO DO: MANDAR LISTA DE PRODUCTOS
 	 }
 	 
 	 public void clickComprar () {
@@ -32,8 +32,8 @@ public class Lookbook {
 	 }
 	 
 	 public void clickIrAlCarrito () {
-		// ES CORRECTO PONER EL WAIT ACA? COMO DEBERÍA SER SINO? 
-		WebDriverWait wait= new WebDriverWait(driver,30);
+		// ESTANDARIZAR EL WAIT
+		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Boton_IrAlCarrito));
 		wait.until(ExpectedConditions.elementToBeClickable(Boton_IrAlCarrito));
 			
