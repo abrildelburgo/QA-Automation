@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import colecciones_pages.Checkout_Cart;
 import colecciones_pages.Checkout_Onepage;
+import colecciones_pages.LaNacionHOP;
 import colecciones_pages.Lookbook;
+import colecciones_pages.MetodoEnvio;
 
 public class Checkout_Onepage_TC1 {
 
@@ -36,9 +38,11 @@ public class Checkout_Onepage_TC1 {
 		 checkout_onepage.registrarCliente();
 		 checkout_onepage.registrarInformacionFacturacion("Abril", "del Burgo", "pruebas1234@gmail.com", "pruebas123", "pruebas123", "Cajaravilla", "4115", "534", "3040", "1407", "46712163", "41567876", "01", "01", "2000", "2");
 		 checkout_onepage.clickContinuar();
-		 //checkout_onepage.elegirMetodoEnvio("AndreaniDomicilio", "3177");
+		 //checkout_onepage.elegirMetodoEnvio("AndreaniDomicilio", "");
 		 //checkout_onepage.elegirMetodoEnvio("AndreaniSucursal", "317");
-		 checkout_onepage.elegirMetodoEnvio("LaNacionHOP", "317");
+		 MetodoEnvio laNacionHOP = new LaNacionHOP();
+		 checkout_onepage.elegirMetodoEnvio(laNacionHOP, "317");
+		 
 		 checkout_onepage.continuarAConfirmacion();
 		 
 		 

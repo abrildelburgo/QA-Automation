@@ -36,10 +36,10 @@ public class Checkout_Onepage {
 	 By AnioNacimiento = By.name("billing[year]");
 	 By Genero = By.name("billing[gender]");
 	 By Boton_Continuar = By.cssSelector("#billing-buttons-container > button");
-	 By MetodoEnvio_LaNacionHOP = By.id("s_method_LaNacionHop_LaNacionHop");
+	 
 	 By MetodoEnvio_AndreaniDomicilio = By.id("s_method_andreaniestandar_andreaniestandar");
 	 By MetodoEnvio_AndreaniSucursal = By.id("s_method_andreanisucursal_andreanisucursal");
-	 By SucursalHOP = By.cssSelector("#shipping_form_LaNacionHop_LaNacionHop > li > span > select");
+	 
 	 By SucursalAndreani = By.cssSelector("#shipping_form_andreanisucursal_andreanisucursal > li > span > select");
 	 By Boton_ContinuarAConfirmacion = By.cssSelector("#shipping-method-buttons-container > button");
 	 
@@ -83,7 +83,10 @@ public class Checkout_Onepage {
 		 driver.findElement(Boton_Continuar).click();
 	 }
 	 
-	 public void elegirMetodoEnvio (String metodoEnvio, String valueSucursal) {		 
+	 public void elegirMetodoEnvio (MetodoEnvio metodoEnvio, String valueSucursal) {		 
+		 
+		 metodoEnvio.seleccionarMetodoEnvio(driver, valueSucursal);
+		 
 		 if (metodoEnvio == "LaNacionHOP") {
 			 driver.findElement(MetodoEnvio_LaNacionHOP).click();
 			 Select se4 = new Select(driver.findElement(SucursalHOP));
