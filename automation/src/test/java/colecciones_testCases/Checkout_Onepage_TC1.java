@@ -9,6 +9,8 @@ import colecciones_pages.Checkout_Onepage;
 import colecciones_pages.Genero;
 import colecciones_pages.LaNacionHOP;
 import colecciones_pages.Lookbook;
+import colecciones_pages.MedioPago;
+import colecciones_pages.MercadoPagoStandard;
 import colecciones_pages.MetodoEnvio;
 import colecciones_pages.Mujer;
 
@@ -56,5 +58,10 @@ public class Checkout_Onepage_TC1 {
 		 
 		 checkout_onepage.continuarAConfirmacion();
 		 
+		 MedioPago mercadoPagoStandard = new MercadoPagoStandard();
+		 checkout_onepage.elegirMedioPago(mercadoPagoStandard);	 
+		 
+		 checkout_onepage.pasarARevision();
+		 checkout_onepage.confirmacionFinal();
 	 } 
 }

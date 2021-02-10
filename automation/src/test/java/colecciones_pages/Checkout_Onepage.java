@@ -37,6 +37,8 @@ public class Checkout_Onepage {
 	 By Genero = By.name("billing[gender]");
 	 By Boton_Continuar = By.cssSelector("#billing-buttons-container > button");
 	 By Boton_ContinuarAConfirmacion = By.cssSelector("#shipping-method-buttons-container > button");
+	 By Boton_PasarARevision = By.cssSelector("#payment-buttons-container > button");
+	 By Boton_ConfirmacionFinal = By.cssSelector("#review-buttons-container > button");
 	 
 	
 	 // Methods
@@ -76,7 +78,6 @@ public class Checkout_Onepage {
 			Select se3 = new Select(driver.findElement(Genero));
 			se3.selectByValue(genero.value());
 	 }	
-			
 				 
 	 public void clickContinuar () {
 		 Utils.click(Boton_Continuar, driver);
@@ -88,6 +89,18 @@ public class Checkout_Onepage {
 	 
 	 public void continuarAConfirmacion () {
 		 Utils.click(Boton_ContinuarAConfirmacion, driver);
+	 }
+	 
+	 public void elegirMedioPago (MedioPago medioPago) {
+		 medioPago.seleccionarMedioPago(driver);
+	 }
+	 
+	 public void pasarARevision () {
+		 Utils.click(Boton_PasarARevision, driver);
+	 }
+	 
+	 public void confirmacionFinal() {
+		 Utils.click(Boton_ConfirmacionFinal, driver);
 	 }
 	 
 }
