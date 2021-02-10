@@ -6,9 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import colecciones_pages.Checkout_Cart;
 import colecciones_pages.Checkout_Onepage;
+import colecciones_pages.Genero;
 import colecciones_pages.LaNacionHOP;
 import colecciones_pages.Lookbook;
 import colecciones_pages.MetodoEnvio;
+import colecciones_pages.Mujer;
 
 public class Checkout_Onepage_TC1 {
 
@@ -36,15 +38,23 @@ public class Checkout_Onepage_TC1 {
 		 checkout_cart.completarCompra();
 		 
 		 checkout_onepage.registrarCliente();
-		 checkout_onepage.registrarInformacionFacturacion("Abril", "del Burgo", "pruebas1234@gmail.com", "pruebas123", "pruebas123", "Cajaravilla", "4115", "534", "3040", "1407", "46712163", "41567876", "01", "01", "2000", "2");
+		 checkout_onepage.registrarInformacionFacturacion_DatosPersonales("Abril", "del Burgo", "pruebas1234@gmail.com", "pruebas123", "pruebas123");
+		 checkout_onepage.registrarInformacionFacturacion_Direccion("Cajaravilla", "4115", "534", "3040", "1407");
+		 Genero mujer = new Mujer();
+		 checkout_onepage.registrarInformacionFacturacion_DatosAdicionales("46712163", "41567876", "01", "01", "2000", mujer);
+		 
 		 checkout_onepage.clickContinuar();
-		 //checkout_onepage.elegirMetodoEnvio("AndreaniDomicilio", "");
-		 //checkout_onepage.elegirMetodoEnvio("AndreaniSucursal", "317");
+		 
+		 // MetodoEnvio andreaniDomicilio = new AndreaniDomicilio();
+		 // checkout_onepage.elegirMetodoEnvio(andreaniDomicilio, null);
+		 
+		 // MetodoEnvio andreaniSucursal = new AndreaniSucursal();
+		 // checkout_onepage.elegirMetodoEnvio(andreaniSucursal, "200");
+		 
 		 MetodoEnvio laNacionHOP = new LaNacionHOP();
 		 checkout_onepage.elegirMetodoEnvio(laNacionHOP, "317");
 		 
 		 checkout_onepage.continuarAConfirmacion();
-		 
 		 
 	 } 
 }

@@ -36,11 +36,6 @@ public class Checkout_Onepage {
 	 By AnioNacimiento = By.name("billing[year]");
 	 By Genero = By.name("billing[gender]");
 	 By Boton_Continuar = By.cssSelector("#billing-buttons-container > button");
-	 
-	 By MetodoEnvio_AndreaniDomicilio = By.id("s_method_andreaniestandar_andreaniestandar");
-	 By MetodoEnvio_AndreaniSucursal = By.id("s_method_andreanisucursal_andreanisucursal");
-	 
-	 By SucursalAndreani = By.cssSelector("#shipping_form_andreanisucursal_andreanisucursal > li > span > select");
 	 By Boton_ContinuarAConfirmacion = By.cssSelector("#shipping-method-buttons-container > button");
 	 
 	
@@ -49,18 +44,18 @@ public class Checkout_Onepage {
 		 driver.findElement(Boton_Registrarse).click();
 	 }
 	 
-	 public void registrarInformacionFacturacion (String nombre, String apellido, String email, String contrasenia, String confirmacionContrasenia,
-			 									  String calle, String altura, String provincia, String barrio, String codigoPostal, String telefono, String dni, String dia, String mes,
-			 									  String anio, String genero) {
+	 public void registrarInformacionFacturacion_DatosPersonales (String nombre, String apellido, String email, String contrasenia, String confirmacionContrasenia) {
+		 	Utils.sendKeys(Nombre, nombre, driver);	
+		 	Utils.sendKeys(Apellido, apellido, driver);	
+		 	Utils.sendKeys(Email, email, driver);
+		 	Utils.sendKeys(Contrasenia, contrasenia, driver);
+		 	Utils.sendKeys(ConfirmacionContrasenia, confirmacionContrasenia, driver);
+	 }
+	 
+	 public void registrarInformacionFacturacion_Direccion (String calle, String altura, String provincia, String barrio, String codigoPostal) {
+		 	Utils.sendKeys(Calle, calle, driver);
+		 	Utils.sendKeys(Altura, altura, driver);
 		 	
-		 	driver.findElement(Nombre).sendKeys(nombre);
-		 	driver.findElement(Apellido).sendKeys(apellido);
-		 	driver.findElement(Email).sendKeys(email);
-		 	driver.findElement(Contrasenia).sendKeys(contrasenia);
-		 	driver.findElement(ConfirmacionContrasenia).sendKeys(confirmacionContrasenia);
-		 	driver.findElement(Calle).sendKeys(calle);
-		 	driver.findElement(Altura).sendKeys(altura);
-		 		
 			Select se = new Select(driver.findElement(Provincia));
 			se.selectByValue(provincia);
 			
@@ -68,42 +63,27 @@ public class Checkout_Onepage {
 			Select select2 = new Select(driver.findElement(Barrio));
 			select2.selectByValue(barrio);
 			
-			driver.findElement(CodigoPostal).sendKeys(codigoPostal);
-		 	driver.findElement(Telefono).sendKeys(telefono);
-		 	driver.findElement(Dni).sendKeys(dni);
-		 	driver.findElement(DiaNacimiento).sendKeys(dia);	
-		 	driver.findElement(MesNacimiento).sendKeys(mes);
-		 	driver.findElement(AnioNacimiento).sendKeys(anio);		
+			Utils.sendKeys(CodigoPostal, codigoPostal, driver);	
+	 }
+		 	
+	 public void registrarInformacionFacturacion_DatosAdicionales (String telefono, String dni, String dia, String mes, String anio, Genero genero) {
+			Utils.sendKeys(Telefono, telefono, driver);
+			Utils.sendKeys(Dni, dni, driver);
+			Utils.sendKeys(DiaNacimiento, dia, driver);
+			Utils.sendKeys(MesNacimiento, mes, driver);
+			Utils.sendKeys(AnioNacimiento, anio, driver);	
 			
 			Select se3 = new Select(driver.findElement(Genero));
-			se3.selectByValue(genero);
-	 }
-	 
+			se3.selectByValue(genero.value());
+	 }	
+			
+				 
 	 public void clickContinuar () {
 		 driver.findElement(Boton_Continuar).click();
 	 }
 	 
 	 public void elegirMetodoEnvio (MetodoEnvio metodoEnvio, String valueSucursal) {		 
-		 
 		 metodoEnvio.seleccionarMetodoEnvio(driver, valueSucursal);
-		 
-		 if (metodoEnvio == "LaNacionHOP") {
-			 driver.findElement(MetodoEnvio_LaNacionHOP).click();
-			 Select se4 = new Select(driver.findElement(SucursalHOP));
-			 se4.selectByValue(valueSucursal); 
-		 } else {
-			 if (metodoEnvio == "AndreaniDomicilio") {
-				 driver.findElement(MetodoEnvio_AndreaniDomicilio).click();
-			 } else {
-				 if (metodoEnvio == "AndreaniSucursal") {
-					 driver.findElement(MetodoEnvio_AndreaniDomicilio).click();
-					 Select se4 = new Select(driver.findElement(SucursalAndreani));
-					 se4.selectByValue(valueSucursal); 
-				 } else {
-					 // throws Exception ??
-				 }
-			 } 
-		 }		
 	 }
 	 
 	 public void continuarAConfirmacion () {
