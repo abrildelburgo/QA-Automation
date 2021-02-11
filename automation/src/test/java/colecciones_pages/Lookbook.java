@@ -1,5 +1,7 @@
 package colecciones_pages;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,9 +24,10 @@ public class Lookbook {
 	 
 	 
 	 // Methods
-	 public void seleccionarArticulo (int index) {
-		 driver.findElements(Articulo_Seleccionado).get(index).click();
-		 // TO DO: MANDAR LISTA DE PRODUCTOS
+	 public void seleccionarArticulo (ArrayList<Integer> listaProductos) {
+		 for (Integer producto : listaProductos) {
+			 driver.findElements(Articulo_Seleccionado).get(producto).click();
+		 }		 
 	 }
 	 
 	 public void clickComprar () {

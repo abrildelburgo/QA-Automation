@@ -1,8 +1,12 @@
 package colecciones_pages;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import java.util.ArrayList;
 import genero.Genero;
 import genero.Mujer;
 import medio_pago.MedioPago;
@@ -23,7 +27,10 @@ public class Checkout_Onepage_TC1 {
 		 Checkout_Cart checkout_cart = new Checkout_Cart(driver);
 		 Checkout_Onepage checkout_onepage = new Checkout_Onepage(driver);
 		 
-		 lookbook.seleccionarArticulo(1);
+		 int[] indicesProductos = {1,2,5};
+		 ArrayList<Integer> listaProductos = Utils.crearListaInteger(indicesProductos);
+	     
+		 lookbook.seleccionarArticulo(listaProductos);
 		 lookbook.clickComprar();
 		 lookbook.clickIrAlCarrito();
 		 

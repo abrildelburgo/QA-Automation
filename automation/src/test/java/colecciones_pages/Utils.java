@@ -1,5 +1,7 @@
 package colecciones_pages;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,4 +23,13 @@ public class Utils {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
+	
+	public static ArrayList<Integer> crearListaInteger (int[] ids) {
+		ArrayList<Integer> lista = new ArrayList<>();
+		for (int id: ids) {
+			lista.add(id);
+	    }
+		return lista;
+	}
+	
 }
