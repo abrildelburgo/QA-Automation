@@ -1,11 +1,7 @@
 package colecciones_pages;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
-
 import genero.Genero;
 import medio_pago.MedioPago;
 import metodo_envio.MetodoEnvio;
@@ -60,14 +56,9 @@ public class Checkout_Onepage {
 	 public void registrarInformacionFacturacion_Direccion (String calle, String altura, String provincia, String barrio, String codigoPostal) {
 		 	Utils.sendKeys(Calle, calle, driver);
 		 	Utils.sendKeys(Altura, altura, driver);
-		 	
-			Select se = new Select(driver.findElement(Provincia));
-			se.selectByValue(provincia);
-			
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			Select select2 = new Select(driver.findElement(Barrio));
-			select2.selectByValue(barrio);
-			
+			Utils.selectByValue(Provincia, provincia, driver);
+			// Utils.wait(Barrio, 30, driver);
+			Utils.selectByValue(Barrio, barrio, driver);
 			Utils.sendKeys(CodigoPostal, codigoPostal, driver);	
 	 }
 		 	
@@ -77,9 +68,7 @@ public class Checkout_Onepage {
 			Utils.sendKeys(DiaNacimiento, dia, driver);
 			Utils.sendKeys(MesNacimiento, mes, driver);
 			Utils.sendKeys(AnioNacimiento, anio, driver);	
-			
-			Select se3 = new Select(driver.findElement(Genero));
-			se3.selectByValue(genero.value());
+			Utils.selectByValue(Genero, genero.value(), driver);
 	 }	
 				 
 	 public void clickContinuar () {
@@ -94,8 +83,8 @@ public class Checkout_Onepage {
 		 Utils.click(Boton_ContinuarAConfirmacion, driver);
 	 }
 	 
-	 public void elegirMedioPago (MedioPago medioPago) {
-		 medioPago.seleccionarMedioPago(driver);
+	 public void elegirMedioPago (MedioPago medioPago, String numeroTarjeta, String mesExpiracion, String anioExpiracion, String nombreTitular, String codigoSeguridad, String tipoDni, String documento, String banco, String cuotas) {
+		 medioPago.seleccionarMedioPago(driver, numeroTarjeta, mesExpiracion, anioExpiracion, nombreTitular, codigoSeguridad, tipoDni, documento, banco, cuotas);
 	 }
 	 
 	 public void pasarARevision () {

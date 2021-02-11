@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utils {
@@ -14,7 +15,7 @@ public class Utils {
 		driver.findElement(locator).sendKeys(key);	
 	}
 	
-	public static void click (By locator, WebDriver driver ) {
+	public static void click (By locator, WebDriver driver) {
 		driver.findElement(locator).click();
 	}
 	
@@ -30,6 +31,12 @@ public class Utils {
 			lista.add(id);
 	    }
 		return lista;
+	}
+	
+	public static void selectByValue (By locator, String value, WebDriver driver) {
+		Utils.wait(locator, 30, driver);
+		Select select = new Select(driver.findElement(locator));
+		select.selectByValue(value);
 	}
 	
 }

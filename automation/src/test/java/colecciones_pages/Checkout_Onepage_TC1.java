@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import genero.Genero;
 import genero.Mujer;
 import medio_pago.MedioPago;
+import medio_pago.MercadoPagoAllIn;
 import medio_pago.MercadoPagoStandard;
 import metodo_envio.LaNacionHOP;
 import metodo_envio.MetodoEnvio;
@@ -34,7 +35,7 @@ public class Checkout_Onepage_TC1 {
 		 checkout_cart.completarCompra();
 		 
 		 checkout_onepage.registrarCliente();
-		 checkout_onepage.registrarInformacionFacturacion_DatosPersonales("Abril", "del Burgo", "pruebasQA123@gmail.com", "pruebas123", "pruebas123");
+		 checkout_onepage.registrarInformacionFacturacion_DatosPersonales("Abril", "del Burgo", "pruebasQA12345@gmail.com", "pruebas123", "pruebas123");
 		 checkout_onepage.registrarInformacionFacturacion_Direccion("Cajaravilla", "4115", "534", "3040", "1407");
 		 Genero mujer = new Mujer();
 		 checkout_onepage.registrarInformacionFacturacion_DatosAdicionales("46712163", "41567876", "01", "01", "2000", mujer);
@@ -52,10 +53,13 @@ public class Checkout_Onepage_TC1 {
 		 
 		 checkout_onepage.continuarAConfirmacion();
 		 
-		 MedioPago mercadoPagoStandard = new MercadoPagoStandard();
-		 checkout_onepage.elegirMedioPago(mercadoPagoStandard);	 
+		 // MedioPago mercadoPagoStandard = new MercadoPagoStandard();
+		 // checkout_onepage.elegirMedioPago(mercadoPagoStandard);	 
 		 
-		 checkout_onepage.pasarARevision();
-		 checkout_onepage.confirmacionFinal();
+		 MedioPago mercadoPagoAllIn = new MercadoPagoAllIn();
+		 checkout_onepage.elegirMedioPago(mercadoPagoAllIn, "2345567800000000", "2", "2025", "NOMBRE DE PRUEBA", "000", "DNI", "41000000", "12437", "3");	 
+		 
+		 // checkout_onepage.pasarARevision();
+		 // checkout_onepage.confirmacionFinal();
 	 } 
 }

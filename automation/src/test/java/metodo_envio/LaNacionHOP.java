@@ -1,9 +1,8 @@
 package metodo_envio;
 
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
-
 import colecciones_pages.Utils;
 
 public class LaNacionHOP implements MetodoEnvio {
@@ -12,9 +11,9 @@ public class LaNacionHOP implements MetodoEnvio {
 	By SucursalHOP = By.cssSelector("#shipping_form_LaNacionHop_LaNacionHop > li > span > select");
 
 	public void seleccionarMetodoEnvio(WebDriver driver, String sucursal) {
+		 driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		 Utils.click(MetodoEnvio_LaNacionHOP, driver);
-		 Select se4 = new Select(driver.findElement(SucursalHOP));
-		 se4.selectByValue(sucursal); 
+		 Utils.selectByValue(SucursalHOP, sucursal, driver);
 	}
 
 }
