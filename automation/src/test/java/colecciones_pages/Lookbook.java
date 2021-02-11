@@ -32,11 +32,7 @@ public class Lookbook {
 	 }
 	 
 	 public void clickIrAlCarrito () {
-		// ESTANDARIZAR EL WAIT
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Boton_IrAlCarrito));
-		wait.until(ExpectedConditions.elementToBeClickable(Boton_IrAlCarrito));
-			
+		Utils.wait(Boton_IrAlCarrito, 30, driver);
 		Utils.click(Boton_IrAlCarrito, driver);
 	 }
  
