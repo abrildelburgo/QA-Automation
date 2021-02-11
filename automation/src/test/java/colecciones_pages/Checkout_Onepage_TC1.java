@@ -1,12 +1,8 @@
 package colecciones_pages;
 
-import java.awt.List;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.ArrayList;
 import genero.Genero;
 import genero.Mujer;
 import medio_pago.MedioPago;
